@@ -152,13 +152,13 @@ If all pushed events (both normal and chained) were processed in the order in wh
 pushed, the following would happen:
 
 | State | Event / Transition | Root cause |
-| --- | --- | --- | --- |
-| ONE \_WAY | LIE received, push LIE \_RECEIVED event | LIE message receipt |
-| ONE \_WAY | Timer expires, push TIMER \_TICK event | Timer expiry |
-| ONE \_WAY | LIE \_RECEIVED [ONE \_WAY] > process \_lie, NEW \_NEIGHBOR [None] | LIE message receipt |
-| ONE \_WAY | TIMER \_TICK [ONE \_WAY] > SEND \_LIE [None] | Timer expiry |
-| ONE \_WAY | NEW \_NEIGHBOR [ONE \_WAY] > SEND \_LIE [TWO \_WAY] | LIE message receipt |
-| TWO \_WAY | SEND \_LIE [TWO \_WAY] > send \_lie [None] | Timer expiry |
+| --- | --- | --- |
+| `ONE_WAY` | `LIE` received, push `LIE_RECEIVED` event | `LIE` message receipt |
+| `ONE_WAY` | Timer expires, push `TIMER_TICK` event | Timer expiry |
+| `ONE_WAY` | `LIE_RECEIVED` [`ONE_WAY`] > `process_lie`, `NEW_NEIGHBOR` [None] | `LIE` message receipt |
+| `ONE_WAY` | `TIMER_TICK` [`ONE_WAY`] > `SEND_LIE` [None] | Timer expiry |
+| `ONE_WAY` | `NEW_NEIGHBOR` [`ONE_WAY`] > `SEND_LIE` [`TWO_WAY`] | `LIE` message receipt |
+| `TWO_WAY` | `SEND_LIE` [`TWO_WAY`] > `send_lie` [None] | Timer expiry |
 
 Note that the events and transitions which are the result of the LIE message receipt are 
 interleaved with the event and transitions which are the result of the timer expiry.
